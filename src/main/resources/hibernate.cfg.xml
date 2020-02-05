@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:oracle:thin:@//admlab2.cs.put.poznan.pl:1521/dblab02_students.cs.put.poznan.pl</property>
+        <property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="dialect">org.hibernate.dialect.Oracle8iDialect</property>
+        <property name="show_sql">true</property>
+
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.internal.EhcacheRegionFactory</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <mapping class="poli.EtatyEntity"/>
+        <mapping class="poli.PracownicyEntity"/>
+        <mapping class="poli.ZespolyEntity"/>
+        <mapping class="entities.BiletEntity"/>
+        <mapping class="entities.FilmEntity"/>
+        <mapping class="entities.KinoEntity"/>
+        <mapping class="entities.KlientEntity"/>
+        <mapping class="entities.PromocjaEntity"/>
+        <mapping class="entities.RezyserEntity"/>
+        <mapping class="entities.SalaEntity"/>
+        <mapping class="entities.SeansEntity"/>
+        <mapping class="entities.ZamowienieEntity"/>
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>
