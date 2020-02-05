@@ -10,6 +10,7 @@ public class SeansEntity {
     private long idSeansu;
     private Time godzina;
     private Time data;
+    private long liczbaWolnych;
     private SalaEntity sala;
     private FilmEntity film;
 
@@ -43,6 +44,16 @@ public class SeansEntity {
         this.data = data;
     }
 
+    @Basic
+    @Column(name = "LICZBA_WOLNYCH")
+    public long getLiczbaWolnych() {
+        return liczbaWolnych;
+    }
+
+    public void setLiczbaWolnych(long liczbaWolnych) {
+        this.liczbaWolnych = liczbaWolnych;
+    }
+
     @Override
     public boolean equals(Object o) {
         if(this == o) return true;
@@ -51,6 +62,7 @@ public class SeansEntity {
         SeansEntity that = (SeansEntity)o;
 
         if(idSeansu != that.idSeansu) return false;
+        if(liczbaWolnych != that.liczbaWolnych) return false;
         if(godzina != null ? !godzina.equals(that.godzina) : that.godzina != null) return false;
         if(data != null ? !data.equals(that.data) : that.data != null) return false;
 
@@ -62,6 +74,7 @@ public class SeansEntity {
         int result = (int)(idSeansu ^ (idSeansu >>> 32));
         result = 31 * result + (godzina != null ? godzina.hashCode() : 0);
         result = 31 * result + (data != null ? data.hashCode() : 0);
+        result = 31 * result + (int)(liczbaWolnych ^ (liczbaWolnych >>> 32));
         return result;
     }
 

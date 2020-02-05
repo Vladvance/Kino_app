@@ -10,7 +10,7 @@ public class FilmEntity {
 
     private String tytul;
     private Time rokProdukcji;
-    private Object dlugosc;
+    private String dlugosc;
 
     @Id
     @Column(name = "TYTUL")
@@ -34,13 +34,11 @@ public class FilmEntity {
 
     @Basic
     @Column(name = "DLUGOSC")
-    public Object getDlugosc() {
+    public String getDlugosc() {
         return dlugosc;
     }
 
-    public void setDlugosc(Object dlugosc) {
-        this.dlugosc = dlugosc;
-    }
+    public void setDlugosc(String dlugosc) { this.dlugosc = dlugosc; }
 
     @Override
     public boolean equals(Object o) {

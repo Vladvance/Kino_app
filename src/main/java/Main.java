@@ -50,7 +50,7 @@ public class Main {
             Query q2 = session1.createQuery("select nazwisko, placaPod from PracownicyEntity where idPrac=180L");
             //jeśli pobieramy niepełny rekord, przechowujemy w Object[], każdy pozycja tablicy to pobrana kolumna
             Object[] o = (Object[])q2.uniqueResult();
-            System.out.println(o[0] + " : " + o[2] );
+            System.out.println(o[0] + " : " + o[1] );
 
             //jeżeli pobieramy cały rekord o podanym id:
             //pracownik = session1.get(PracownicyEntity.class, 180L);

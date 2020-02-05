@@ -9,7 +9,7 @@ public class KlientEntity {
     private long idKlienta;
     private String imie;
     private String nazwisko;
-    private String adresEMail;
+    private String adresEmail;
     private String nrTelefonu;
 
     @Id
@@ -43,13 +43,13 @@ public class KlientEntity {
     }
 
     @Basic
-    @Column(name = "adres_e-mail")
-    public String getAdresEMail() {
-        return adresEMail;
+    @Column(name = "ADRES_EMAIL")
+    public String getAdresEmail() {
+        return adresEmail;
     }
 
-    public void setAdresEMail(String adresEMail) {
-        this.adresEMail = adresEMail;
+    public void setAdresEmail(String adresEmail) {
+        this.adresEmail = adresEmail;
     }
 
     @Basic
@@ -72,7 +72,7 @@ public class KlientEntity {
         if(idKlienta != that.idKlienta) return false;
         if(imie != null ? !imie.equals(that.imie) : that.imie != null) return false;
         if(nazwisko != null ? !nazwisko.equals(that.nazwisko) : that.nazwisko != null) return false;
-        if(adresEMail != null ? !adresEMail.equals(that.adresEMail) : that.adresEMail != null) return false;
+        if(adresEmail != null ? !adresEmail.equals(that.adresEmail) : that.adresEmail != null) return false;
         if(nrTelefonu != null ? !nrTelefonu.equals(that.nrTelefonu) : that.nrTelefonu != null) return false;
 
         return true;
@@ -83,7 +83,7 @@ public class KlientEntity {
         int result = (int)(idKlienta ^ (idKlienta >>> 32));
         result = 31 * result + (imie != null ? imie.hashCode() : 0);
         result = 31 * result + (nazwisko != null ? nazwisko.hashCode() : 0);
-        result = 31 * result + (adresEMail != null ? adresEMail.hashCode() : 0);
+        result = 31 * result + (adresEmail != null ? adresEmail.hashCode() : 0);
         result = 31 * result + (nrTelefonu != null ? nrTelefonu.hashCode() : 0);
         return result;
     }

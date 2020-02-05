@@ -6,28 +6,28 @@ import javax.persistence.*;
 @Table(name = "PROMOCJA", schema = "INF136573")
 public class PromocjaEntity {
 
-    private long idPromocji;
-    private String rodzajPromocji;
+    private long idProm;
+    private String rodzajProm;
     private long obnizka;
 
     @Id
-    @Column(name = "ID_PROMOCJI")
-    public long getIdPromocji() {
-        return idPromocji;
+    @Column(name = "ID_PROM")
+    public long getIdProm() {
+        return idProm;
     }
 
-    public void setIdPromocji(long idPromocji) {
-        this.idPromocji = idPromocji;
+    public void setIdProm(long idProm) {
+        this.idProm = idProm;
     }
 
     @Basic
-    @Column(name = "RODZAJ_PROMOCJI")
-    public String getRodzajPromocji() {
-        return rodzajPromocji;
+    @Column(name = "RODZAJ_PROM")
+    public String getRodzajProm() {
+        return rodzajProm;
     }
 
-    public void setRodzajPromocji(String rodzajPromocji) {
-        this.rodzajPromocji = rodzajPromocji;
+    public void setRodzajProm(String rodzajProm) {
+        this.rodzajProm = rodzajProm;
     }
 
     @Basic
@@ -47,18 +47,17 @@ public class PromocjaEntity {
 
         PromocjaEntity that = (PromocjaEntity)o;
 
-        if(idPromocji != that.idPromocji) return false;
+        if(idProm != that.idProm) return false;
         if(obnizka != that.obnizka) return false;
-        if(rodzajPromocji != null ? !rodzajPromocji.equals(that.rodzajPromocji) : that.rodzajPromocji != null)
-            return false;
+        if(rodzajProm != null ? !rodzajProm.equals(that.rodzajProm) : that.rodzajProm != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = (int)(idPromocji ^ (idPromocji >>> 32));
-        result = 31 * result + (rodzajPromocji != null ? rodzajPromocji.hashCode() : 0);
+        int result = (int)(idProm ^ (idProm >>> 32));
+        result = 31 * result + (rodzajProm != null ? rodzajProm.hashCode() : 0);
         result = 31 * result + (int)(obnizka ^ (obnizka >>> 32));
         return result;
     }
