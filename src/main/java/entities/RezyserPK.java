@@ -1,17 +1,16 @@
 package entities;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import java.io.Serializable;
 
-@Entity
-@Table(name = "REZYSER", schema = "INF136573")
-@IdClass(RezyserEntityPK.class)
-public class RezyserEntity {
+public class RezyserPK implements Serializable {
 
     private String imie;
     private String nazwisko;
 
-    @Id
     @Column(name = "IMIE")
+    @Id
     public String getImie() {
         return imie;
     }
@@ -20,8 +19,8 @@ public class RezyserEntity {
         this.imie = imie;
     }
 
-    @Id
     @Column(name = "NAZWISKO")
+    @Id
     public String getNazwisko() {
         return nazwisko;
     }
@@ -35,10 +34,10 @@ public class RezyserEntity {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
 
-        RezyserEntity that = (RezyserEntity)o;
+        RezyserPK rezyserPK = (RezyserPK)o;
 
-        if(imie != null ? !imie.equals(that.imie) : that.imie != null) return false;
-        if(nazwisko != null ? !nazwisko.equals(that.nazwisko) : that.nazwisko != null) return false;
+        if(imie != null ? !imie.equals(rezyserPK.imie) : rezyserPK.imie != null) return false;
+        if(nazwisko != null ? !nazwisko.equals(rezyserPK.nazwisko) : rezyserPK.nazwisko != null) return false;
 
         return true;
     }

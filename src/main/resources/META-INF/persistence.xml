@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="KinoPU">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>poli.EtatyEntity</class>
+        <class>poli.PracownicyEntity</class>
+        <class>poli.ZespolyEntity</class>
+        <class>entities.Bilet</class>
+        <class>entities.Film</class>
+        <class>entities.Kino</class>
+        <class>entities.Klient</class>
+        <class>entities.Promocja</class>
+        <class>entities.Rezyser</class>
+        <class>entities.Sala</class>
+        <class>entities.Seans</class>
+        <class>entities.Zamowienie</class>
+        <properties>
+
+            <!--        <property name="hibernate.hbm2ddl.auto">update</property>-->
+            <!-- DB schema will be updated if needed -->
+
+            <property name="hibernate.connection.url"
+                      value="jdbc:oracle:thin:@//admlab2.cs.put.poznan.pl:1521/dblab02_students.cs.put.poznan.pl"/>
+            <property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.connection.username" value="inf136573"/>
+            <property name="hibernate.connection.password" value="inf136573"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle8iDialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.cache.use_second_level_cache" value="true"/>
+            <property name="hibernate.cache.region.factory_class"
+                      value="org.hibernate.cache.ehcache.internal.EhcacheRegionFactory"/>
+            <property name="hibernate.cache.use_query_cache" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>

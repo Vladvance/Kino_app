@@ -4,7 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-public class SalaEntityPK implements Serializable {
+public class SalaPK implements Serializable {
 
     private long nrSali;
     private String kinoNazwa;
@@ -34,10 +34,10 @@ public class SalaEntityPK implements Serializable {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
 
-        SalaEntityPK that = (SalaEntityPK)o;
+        SalaPK salaPK = (SalaPK)o;
 
-        if(nrSali != that.nrSali) return false;
-        if(kinoNazwa != null ? !kinoNazwa.equals(that.kinoNazwa) : that.kinoNazwa != null) return false;
+        if(nrSali != salaPK.nrSali) return false;
+        if(kinoNazwa != null ? !kinoNazwa.equals(salaPK.kinoNazwa) : salaPK.kinoNazwa != null) return false;
 
         return true;
     }

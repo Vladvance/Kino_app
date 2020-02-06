@@ -1,14 +1,15 @@
 package entities;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
-@Table(name = "PROMOCJA", schema = "INF136573")
-public class PromocjaEntity {
+public class Promocja {
 
     private long idProm;
     private String rodzajProm;
     private long obnizka;
+    private Collection<Bilet> biletsByIdProm;
 
     @Id
     @Column(name = "ID_PROM")
@@ -45,11 +46,11 @@ public class PromocjaEntity {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
 
-        PromocjaEntity that = (PromocjaEntity)o;
+        Promocja promocja = (Promocja)o;
 
-        if(idProm != that.idProm) return false;
-        if(obnizka != that.obnizka) return false;
-        if(rodzajProm != null ? !rodzajProm.equals(that.rodzajProm) : that.rodzajProm != null) return false;
+        if(idProm != promocja.idProm) return false;
+        if(obnizka != promocja.obnizka) return false;
+        if(rodzajProm != null ? !rodzajProm.equals(promocja.rodzajProm) : promocja.rodzajProm != null) return false;
 
         return true;
     }
@@ -60,6 +61,15 @@ public class PromocjaEntity {
         result = 31 * result + (rodzajProm != null ? rodzajProm.hashCode() : 0);
         result = 31 * result + (int)(obnizka ^ (obnizka >>> 32));
         return result;
+    }
+
+    @OneToMany(mappedBy = "promocjaByPromocjaIdProm")
+    public Collection<Bilet> getBiletsByIdProm() {
+        return biletsByIdProm;
+    }
+
+    public void setBiletsByIdProm(Collection<Bilet> biletsByIdProm) {
+        this.biletsByIdProm = biletsByIdProm;
     }
 
 }

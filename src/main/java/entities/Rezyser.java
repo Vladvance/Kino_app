@@ -1,16 +1,18 @@
 package entities;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import java.io.Serializable;
+import javax.persistence.*;
+import java.util.Collection;
 
-public class RezyserEntityPK implements Serializable {
+@Entity
+@IdClass(RezyserPK.class)
+public class Rezyser {
 
     private String imie;
     private String nazwisko;
+    private Collection<Film> films;
 
-    @Column(name = "IMIE")
     @Id
+    @Column(name = "IMIE")
     public String getImie() {
         return imie;
     }
@@ -19,8 +21,8 @@ public class RezyserEntityPK implements Serializable {
         this.imie = imie;
     }
 
-    @Column(name = "NAZWISKO")
     @Id
+    @Column(name = "NAZWISKO")
     public String getNazwisko() {
         return nazwisko;
     }
@@ -34,10 +36,10 @@ public class RezyserEntityPK implements Serializable {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
 
-        RezyserEntityPK that = (RezyserEntityPK)o;
+        Rezyser rezyser = (Rezyser)o;
 
-        if(imie != null ? !imie.equals(that.imie) : that.imie != null) return false;
-        if(nazwisko != null ? !nazwisko.equals(that.nazwisko) : that.nazwisko != null) return false;
+        if(imie != null ? !imie.equals(rezyser.imie) : rezyser.imie != null) return false;
+        if(nazwisko != null ? !nazwisko.equals(rezyser.nazwisko) : rezyser.nazwisko != null) return false;
 
         return true;
     }
@@ -47,6 +49,15 @@ public class RezyserEntityPK implements Serializable {
         int result = imie != null ? imie.hashCode() : 0;
         result = 31 * result + (nazwisko != null ? nazwisko.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "rezyser")
+    public Collection<Film> getFilms() {
+        return films;
+    }
+
+    public void setFilms(Collection<Film> films) {
+        this.films = films;
     }
 
 }

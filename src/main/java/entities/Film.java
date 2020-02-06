@@ -1,16 +1,15 @@
 package entities;
 
 import javax.persistence.*;
-import java.sql.Time;
 
 @Entity
-@Table(name = "FILM", schema = "INF136573")
-@IdClass(FilmEntityPK.class)
-public class FilmEntity {
+@IdClass(FilmPK.class)
+public class Film {
 
     private String tytul;
-    private Time rokProdukcji;
+    private String rokProdukcji;
     private String dlugosc;
+    private Rezyser rezyser;
 
     @Id
     @Column(name = "TYTUL")
@@ -24,11 +23,11 @@ public class FilmEntity {
 
     @Id
     @Column(name = "ROK_PRODUKCJI")
-    public Time getRokProdukcji() {
+    public String getRokProdukcji() {
         return rokProdukcji;
     }
 
-    public void setRokProdukcji(Time rokProdukcji) {
+    public void setRokProdukcji(String rokProdukcji) {
         this.rokProdukcji = rokProdukcji;
     }
 
@@ -38,18 +37,20 @@ public class FilmEntity {
         return dlugosc;
     }
 
-    public void setDlugosc(String dlugosc) { this.dlugosc = dlugosc; }
+    public void setDlugosc(String dlugosc) {
+        this.dlugosc = dlugosc;
+    }
 
     @Override
     public boolean equals(Object o) {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
 
-        FilmEntity that = (FilmEntity)o;
+        Film film = (Film)o;
 
-        if(tytul != null ? !tytul.equals(that.tytul) : that.tytul != null) return false;
-        if(rokProdukcji != null ? !rokProdukcji.equals(that.rokProdukcji) : that.rokProdukcji != null) return false;
-        if(dlugosc != null ? !dlugosc.equals(that.dlugosc) : that.dlugosc != null) return false;
+        if(tytul != null ? !tytul.equals(film.tytul) : film.tytul != null) return false;
+        if(rokProdukcji != null ? !rokProdukcji.equals(film.rokProdukcji) : film.rokProdukcji != null) return false;
+        if(dlugosc != null ? !dlugosc.equals(film.dlugosc) : film.dlugosc != null) return false;
 
         return true;
     }
@@ -60,6 +61,16 @@ public class FilmEntity {
         result = 31 * result + (rokProdukcji != null ? rokProdukcji.hashCode() : 0);
         result = 31 * result + (dlugosc != null ? dlugosc.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumns({@JoinColumn(name = "REZYSER_IMIE", referencedColumnName = "IMIE", nullable = false), @JoinColumn(name = "REZYSER_NAZWISKO", referencedColumnName = "NAZWISKO", nullable = false)})
+    public Rezyser getRezyser() {
+        return rezyser;
+    }
+
+    public void setRezyser(Rezyser rezyser) {
+        this.rezyser = rezyser;
     }
 
 }

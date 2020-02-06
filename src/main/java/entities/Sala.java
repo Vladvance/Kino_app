@@ -3,14 +3,13 @@ package entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "SALA", schema = "INF136573")
-@IdClass(SalaEntityPK.class)
-public class SalaEntity {
+@IdClass(SalaPK.class)
+public class Sala {
 
     private long nrSali;
     private byte liczbaMiejsc;
     private String kinoNazwa;
-    private KinoEntity kinoEntity;
+    private Kino kinoByKinoNazwa;
 
     @Id
     @Column(name = "NR_SALI")
@@ -47,11 +46,11 @@ public class SalaEntity {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
 
-        SalaEntity that = (SalaEntity)o;
+        Sala sala = (Sala)o;
 
-        if(nrSali != that.nrSali) return false;
-        if(liczbaMiejsc != that.liczbaMiejsc) return false;
-        if(kinoNazwa != null ? !kinoNazwa.equals(that.kinoNazwa) : that.kinoNazwa != null) return false;
+        if(nrSali != sala.nrSali) return false;
+        if(liczbaMiejsc != sala.liczbaMiejsc) return false;
+        if(kinoNazwa != null ? !kinoNazwa.equals(sala.kinoNazwa) : sala.kinoNazwa != null) return false;
 
         return true;
     }
@@ -67,13 +66,12 @@ public class SalaEntity {
     @MapsId("kinoNazwa")
     @ManyToOne
     @JoinColumn(name = "KINO_NAZWA", referencedColumnName = "NAZWA", nullable = false)
-    public KinoEntity getKinoEntity() {
-        return kinoEntity;
+    public Kino getKinoByKinoNazwa() {
+        return kinoByKinoNazwa;
     }
 
-    public void setKinoEntity(KinoEntity kinoByKinoNazwa) {
-        this.kinoEntity = kinoByKinoNazwa;
+    public void setKinoByKinoNazwa(Kino kinoByKinoNazwa) {
+        this.kinoByKinoNazwa = kinoByKinoNazwa;
     }
 
 }
-

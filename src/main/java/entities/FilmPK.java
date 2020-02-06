@@ -3,12 +3,11 @@ package entities;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import java.io.Serializable;
-import java.sql.Time;
 
-public class FilmEntityPK implements Serializable {
+public class FilmPK implements Serializable {
 
     private String tytul;
-    private Time rokProdukcji;
+    private String rokProdukcji;
 
     @Column(name = "TYTUL")
     @Id
@@ -22,11 +21,11 @@ public class FilmEntityPK implements Serializable {
 
     @Column(name = "ROK_PRODUKCJI")
     @Id
-    public Time getRokProdukcji() {
+    public String getRokProdukcji() {
         return rokProdukcji;
     }
 
-    public void setRokProdukcji(Time rokProdukcji) {
+    public void setRokProdukcji(String rokProdukcji) {
         this.rokProdukcji = rokProdukcji;
     }
 
@@ -35,10 +34,10 @@ public class FilmEntityPK implements Serializable {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
 
-        FilmEntityPK that = (FilmEntityPK)o;
+        FilmPK filmPK = (FilmPK)o;
 
-        if(tytul != null ? !tytul.equals(that.tytul) : that.tytul != null) return false;
-        if(rokProdukcji != null ? !rokProdukcji.equals(that.rokProdukcji) : that.rokProdukcji != null) return false;
+        if(tytul != null ? !tytul.equals(filmPK.tytul) : filmPK.tytul != null) return false;
+        if(rokProdukcji != null ? !rokProdukcji.equals(filmPK.rokProdukcji) : filmPK.rokProdukcji != null) return false;
 
         return true;
     }

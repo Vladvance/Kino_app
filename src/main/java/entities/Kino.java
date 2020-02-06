@@ -1,13 +1,14 @@
 package entities;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
-@Table(name = "KINO", schema = "INF136573")
-public class KinoEntity {
+public class Kino {
 
     private String nazwa;
     private String adres;
+    private Collection<Sala> salasByNazwa;
 
     @Id
     @Column(name = "NAZWA")
@@ -34,10 +35,10 @@ public class KinoEntity {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
 
-        KinoEntity that = (KinoEntity)o;
+        Kino kino = (Kino)o;
 
-        if(nazwa != null ? !nazwa.equals(that.nazwa) : that.nazwa != null) return false;
-        if(adres != null ? !adres.equals(that.adres) : that.adres != null) return false;
+        if(nazwa != null ? !nazwa.equals(kino.nazwa) : kino.nazwa != null) return false;
+        if(adres != null ? !adres.equals(kino.adres) : kino.adres != null) return false;
 
         return true;
     }
@@ -47,6 +48,15 @@ public class KinoEntity {
         int result = nazwa != null ? nazwa.hashCode() : 0;
         result = 31 * result + (adres != null ? adres.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "kinoByKinoNazwa")
+    public Collection<Sala> getSalasByNazwa() {
+        return salasByNazwa;
+    }
+
+    public void setSalasByNazwa(Collection<Sala> salasByNazwa) {
+        this.salasByNazwa = salasByNazwa;
     }
 
 }

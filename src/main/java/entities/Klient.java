@@ -1,10 +1,12 @@
 package entities;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
-@Table(name = "KLIENT", schema = "INF136573")
-public class KlientEntity {
+public class Klient {
 
     private long idKlienta;
     private String imie;
@@ -67,13 +69,13 @@ public class KlientEntity {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
 
-        KlientEntity that = (KlientEntity)o;
+        Klient klient = (Klient)o;
 
-        if(idKlienta != that.idKlienta) return false;
-        if(imie != null ? !imie.equals(that.imie) : that.imie != null) return false;
-        if(nazwisko != null ? !nazwisko.equals(that.nazwisko) : that.nazwisko != null) return false;
-        if(adresEmail != null ? !adresEmail.equals(that.adresEmail) : that.adresEmail != null) return false;
-        if(nrTelefonu != null ? !nrTelefonu.equals(that.nrTelefonu) : that.nrTelefonu != null) return false;
+        if(idKlienta != klient.idKlienta) return false;
+        if(imie != null ? !imie.equals(klient.imie) : klient.imie != null) return false;
+        if(nazwisko != null ? !nazwisko.equals(klient.nazwisko) : klient.nazwisko != null) return false;
+        if(adresEmail != null ? !adresEmail.equals(klient.adresEmail) : klient.adresEmail != null) return false;
+        if(nrTelefonu != null ? !nrTelefonu.equals(klient.nrTelefonu) : klient.nrTelefonu != null) return false;
 
         return true;
     }
