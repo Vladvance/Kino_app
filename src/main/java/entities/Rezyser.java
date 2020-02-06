@@ -60,4 +60,13 @@ public class Rezyser {
         this.films = films;
     }
 
+    @Override
+    public String toString() {
+        return "Rezyser{" +
+                "imie='" + imie + '\'' +
+                ", nazwisko='" + nazwisko + '\'' +
+                ", films=" + films +
+                '}';
+    }
+
 }

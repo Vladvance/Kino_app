@@ -73,4 +73,14 @@ public class Film {
         this.rezyser = rezyser;
     }
 
+    @Override
+    public String toString() {
+        return "Film{" +
+                "tytul='" + tytul + '\'' +
+                ", rokProdukcji='" + rokProdukcji + '\'' +
+                ", dlugosc='" + dlugosc + '\'' +
+                ", rezyser=" + rezyser +
+                '}';
+    }
+
 }
