@@ -1,10 +1,5 @@
-import dao.FilmDao;
-import dao.KinoDao;
-import dao.SalaDao;
-import entities.Film;
-import entities.Kino;
-import entities.Rezyser;
-import entities.Sala;
+import dao.*;
+import entities.*;
 import org.hibernate.exception.ConstraintViolationException;
 
 import javax.persistence.RollbackException;
@@ -15,6 +10,9 @@ public class Main {
         FilmDao filmDao = new FilmDao();
         SalaDao salaDao = new SalaDao();
         KinoDao kinoDao = new KinoDao();
+        KlientDao klientDao = new KlientDao();
+        PromocjaDao promocjaDao = new PromocjaDao();
+        RezyserDao rezyserDao = new RezyserDao();
 
 //        try {
 //            Film film = new Film();
@@ -83,6 +81,71 @@ public class Main {
 //        } catch (Exception e){
 //            System.out.println("Nie ma takiego kina");
 //        }
+
+        //DODAWANIE KLIENTA DZIAŁA
+//        try {
+//            Klient klient = new Klient();
+//            klient.setAdresEmail("elsa@wp.pl");
+//            klient.setIdKlienta(123);
+//            klient.setImie("Elsaa");
+//            klient.setNazwisko("Aaaarendelleee");
+//            klient.setNrTelefonu("982398238");
+//            klientDao.addKlient(klient);
+//
+//
+//            System.out.println("New klient added: " + klient.getImie());
+//        } catch(RollbackException e) {
+//            System.out.println("Kino already exists");
+//        }
+
+        //USUWANIE KLIENTA DZIAŁA
+//        try{
+//            klientDao.deleteKlient(123);
+//        } catch (Exception e){
+//            System.out.println("Nie ma takiego klienta");
+//        }
+
+        //DODAWANIE PROMOCJI DZIAŁA
+//        try {
+//            Promocja promocja = new Promocja();
+//            promocja.setIdProm(222);
+//            promocja.setObnizka(14);
+//            promocja.setRodzajProm("Na wiosne");
+//            promocjaDao.addPromocja(promocja);
+//
+//
+//            System.out.println("New promocja added: " + promocja);
+//        } catch(RollbackException e) {
+//            System.out.println("Promocja already exists");
+//        }
+
+        //USUWANIE PROMOCJI DZIAŁA
+//        try{
+//            promocjaDao.deletePromocja(111);
+//        } catch (Exception e){
+//            System.out.println("Nie ma takiej promocji");
+//        }
+
+        //DODAWANIE REZYSERA DZIAŁA
+//        try {
+//            Rezyser rezyser = new Rezyser();
+//            rezyser.setImie("Makrela");
+//            rezyser.setNazwisko("Makarena");
+//            rezyserDao.addRezyser(rezyser);
+//
+//
+//            System.out.println("New rezyser added: " + rezyser);
+//        } catch(RollbackException e) {
+//            System.out.println("Rezyser already exists");
+//        }
+
+        //USUWANIE REZYSERA DZIAŁA
+//        try{
+//            rezyserDao.deleteRezyser("Makrela", "Makarena");
+//        } catch (Exception e){
+//            System.out.println("Nie ma takiego rezysera");
+//        }
+
 
 
     }
