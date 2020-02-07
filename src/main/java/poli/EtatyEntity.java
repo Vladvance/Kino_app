@@ -6,7 +6,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ETATY", schema = "INF136573")
+@Table(name = "ETATY", schema = "INF136573", catalog = "")
 @Cacheable
 @Cache(usage= CacheConcurrencyStrategy.READ_ONLY)
 public class EtatyEntity {

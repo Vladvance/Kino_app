@@ -6,10 +6,14 @@ import org.hibernate.annotations.Cache;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ZESPOLY", schema = "INF136573")
+@Table(name = "ZESPOLY", schema = "INF136573", catalog = "")
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class ZespolyEntity {
+
+    private long idZesp;
+    private String nazwa;
+    private String adres;
 
     @Override
     public String toString() {
@@ -19,10 +23,6 @@ public class ZespolyEntity {
                 ", adres='" + adres + '\'' +
                 '}';
     }
-
-    private long idZesp;
-    private String nazwa;
-    private String adres;
 
     @Id
     @Column(name = "ID_ZESP")

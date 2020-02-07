@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.sql.Time;
 
 @Entity
-@Table(name = "PRACOWNICY", schema = "INF136573")
+@Table(name = "PRACOWNICY", schema = "INF136573", catalog = "")
 @Cacheable
 @org.hibernate.annotations.Cache(usage= CacheConcurrencyStrategy.READ_ONLY)
 public class PracownicyEntity {
