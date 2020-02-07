@@ -13,6 +13,8 @@ public class Main {
         KlientDao klientDao = new KlientDao();
         PromocjaDao promocjaDao = new PromocjaDao();
         RezyserDao rezyserDao = new RezyserDao();
+        ZamowienieDao zamowienieDao = new ZamowienieDao();
+
 
 //        try {
 //            Film film = new Film();
@@ -145,6 +147,27 @@ public class Main {
 //        } catch (Exception e){
 //            System.out.println("Nie ma takiego rezysera");
 //        }
+
+        //DODAWANIE ZAMOWIENIA DZIAŁA
+//        try {
+//            Zamowienie zamowienie = new Zamowienie();
+//            zamowienie.setKlientIdKlienta(3445);
+//            zamowienie.setNrZamowienia(12);
+//            zamowienieDao.addZamowienie(zamowienie);
+//
+//
+//            System.out.println("New zamowienie added: " + zamowienie);
+//        } catch(RollbackException e) {
+//            System.out.println("Zamowienie already exists");
+//        }
+
+        //USUWANIE ZAMOWIENIA DZIAŁA
+//        try{
+//            zamowienieDao.deleteZamowienie(12);
+//        } catch (Exception e){
+//            System.out.println("Nie ma takiego zamowienia");
+//        }
+
 
 
 
