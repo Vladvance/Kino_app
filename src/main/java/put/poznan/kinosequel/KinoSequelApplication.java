@@ -35,7 +35,7 @@ public class KinoSequelApplication {
         return (args) -> {
 
 //            filmrep.save(new Film("Best sesja ever3", "2020", "H23M23", d));
-            filmrep.save(new Film("Best sesja ever4", "2020", "H23M23", new Director("Some", "Body")));
+//            filmrep.save(new Film("Best sesja ever4", "2020", "H23M23", new Director("Some", "Body")));
 
             log.info("Films found with findAll():");
             log.info("-----------------------------");
