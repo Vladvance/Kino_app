@@ -7,27 +7,27 @@ import java.util.Objects;
 @Table(name = "SALA", schema = "INF136573")
 public class Room {
 
-    private long roomNr;
-    private byte seatNumber;
+    private byte roomNo;
+    private int seatNumber;
     private Cinema cinema;
 
     @Id
     @Column(name = "NR_SALI")
-    public long getRoomNr() {
-        return roomNr;
+    public byte getRoomNo() {
+        return roomNo;
     }
 
-    public void setRoomNr(long roomNr) {
-        this.roomNr = roomNr;
+    public void setRoomNo(byte roomNr) {
+        this.roomNo = roomNr;
     }
 
     @Basic
     @Column(name = "LICZBA_MIEJSC")
-    public byte getSeatNumber() {
+    public int getSeatNumber() {
         return seatNumber;
     }
 
-    public void setSeatNumber(byte seatNumber) {
+    public void setSeatNumber(int seatNumber) {
         this.seatNumber = seatNumber;
     }
 
@@ -36,13 +36,13 @@ public class Room {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
         Room room = (Room)o;
-        return roomNr == room.roomNr &&
+        return roomNo == room.roomNo &&
                 seatNumber == room.seatNumber;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(roomNr, seatNumber);
+        return Objects.hash(roomNo, seatNumber);
     }
 
     @ManyToOne

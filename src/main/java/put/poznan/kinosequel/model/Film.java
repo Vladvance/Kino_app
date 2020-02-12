@@ -3,8 +3,11 @@ package put.poznan.kinosequel.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
+import com.github.marschall.threeten.jpa.oracle.hibernate.OracleDurationType;
 
 import javax.persistence.*;
+import java.time.Duration;
 
 
 @Entity
@@ -24,7 +27,8 @@ public class Film {
 
     @Basic
     @Column(name = "DLUGOSC")
-    private String duration;
+    @Type(type = OracleDurationType.NAME)
+    private Duration duration;
 
     //TODO: usuwanie filmu nie powinno usuwać rezysera (teraz nie tak)
     @ManyToOne(cascade = CascadeType.ALL)

@@ -2,6 +2,8 @@ package put.poznan.kinosequel.model;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -10,13 +12,13 @@ import java.util.Objects;
 public class Movie {
 
     private long movieId;
-    private Time beginningTime;
-    private Time date;
-    private long freeSeatsNumber;
+    private LocalTime beginningTime;
+    private LocalDate date;
+    private int freeSeatsNumber;
     private String cinemaName;
-    private long roomNr;
+    private byte roomNo;
     private String title;
-    private Time productionYear;
+    private LocalDate productionYear;
     private Collection<Ticket> tickets;
 
     @Id
@@ -31,31 +33,31 @@ public class Movie {
 
     @Basic
     @Column(name = "GODZINA")
-    public Time getBeginningTime() {
+    public LocalTime getBeginningTime() {
         return beginningTime;
     }
 
-    public void setBeginningTime(Time beginningTime) {
+    public void setBeginningTime(LocalTime beginningTime) {
         this.beginningTime = beginningTime;
     }
 
     @Basic
     @Column(name = "DATA")
-    public Time getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Time date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
     @Basic
     @Column(name = "LICZBA_WOLNYCH")
-    public long getFreeSeatsNumber() {
+    public int getFreeSeatsNumber() {
         return freeSeatsNumber;
     }
 
-    public void setFreeSeatsNumber(long freeSeatsNumber) {
+    public void setFreeSeatsNumber(int freeSeatsNumber) {
         this.freeSeatsNumber = freeSeatsNumber;
     }
 
@@ -71,12 +73,12 @@ public class Movie {
 
     @Basic
     @Column(name = "SALA_NR_SALI")
-    public long getRoomNr() {
-        return roomNr;
+    public byte getRoomNo() {
+        return roomNo;
     }
 
-    public void setRoomNr(long roomNr) {
-        this.roomNr = roomNr;
+    public void setRoomNo(byte roomNr) {
+        this.roomNo = roomNr;
     }
 
     @Basic
@@ -91,11 +93,11 @@ public class Movie {
 
     @Basic
     @Column(name = "FILM_ROK_PRODUKCJI")
-    public Time getProductionYear() {
+    public LocalDate getProductionYear() {
         return productionYear;
     }
 
-    public void setProductionYear(Time productionYear) {
+    public void setProductionYear(LocalDate productionYear) {
         this.productionYear = productionYear;
     }
 
@@ -106,7 +108,7 @@ public class Movie {
         Movie movie = (Movie)o;
         return movieId == movie.movieId &&
                 freeSeatsNumber == movie.freeSeatsNumber &&
-                roomNr == movie.roomNr &&
+                roomNo == movie.roomNo &&
                 Objects.equals(beginningTime, movie.beginningTime) &&
                 Objects.equals(date, movie.date) &&
                 Objects.equals(cinemaName, movie.cinemaName) &&
@@ -116,7 +118,7 @@ public class Movie {
 
     @Override
     public int hashCode() {
-        return Objects.hash(movieId, beginningTime, date, freeSeatsNumber, cinemaName, roomNr, title, productionYear);
+        return Objects.hash(movieId, beginningTime, date, freeSeatsNumber, cinemaName, roomNo, title, productionYear);
     }
 
     @OneToMany(mappedBy = "movie")
